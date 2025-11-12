@@ -15,9 +15,8 @@ def get_cursor():
 def krijg_output():
     connection, cursor = get_cursor()
     cursor.execute("""SELECT * FROM leukehobby""")
-    test = cursor.fetchall()
-    for row in test:
-        print(row)
-    connection.close()
+    rows = cursor.fetchall()
+    keys = [i[0] for i in cursor.description]
+    data = [dict(zip(keys, row)) for row in rows]
 
-    return ("yes, het is gelukt! " + str(test))
+    return (data)
