@@ -15,7 +15,7 @@ def home():
 def bente():
     result = bente_app.krijg_output()
     print(result)
-    return "tweede return" + result
+    return result
 
 
 @app.route('/abel')
