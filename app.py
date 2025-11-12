@@ -26,5 +26,10 @@ def donny():
    output_donny = donny_app.krijg_output("heel_leuk")
    return output_donny
 
+@app.route('/donny/')
+def donny():
+   output_donny = donny_app.krijg_output("heel_leuk")
+   return output_donny
+
 if __name__ == '__main__':
     app.run(debug=True)
