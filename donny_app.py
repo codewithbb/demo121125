@@ -10,8 +10,11 @@ def get_cursor():
 
     return myconn, myconn.cursor()
 
-connection, cursor = get_cursor()
-cursor.execute("SELECT * FROM heel_leuk")
-for row in cursor.fetchall():
-    print(row)
-connection.close()
+def krijg_output():
+    connection, cursor = get_cursor()
+    cursor.execute("SELECT * FROM heel_leuk")
+    test = cursor.fetchall()
+    for row in test:
+        print(row)
+    return "Dit is mijn output " + str(test)
+    connection.close()
