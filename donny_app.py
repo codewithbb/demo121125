@@ -10,11 +10,10 @@ def get_cursor():
 
     return myconn, myconn.cursor()
 
-def krijg_output():
+def krijg_output(naam_tabel):
     connection, cursor = get_cursor()
-    cursor.execute("SELECT * FROM heel_leuk")
-    test = cursor.fetchall()
-    for row in test:
-        print(row)
-    return "Dit is mijn output " + str(test)
-    connection.close()
+    cursor.execute(f"SELECT * from {naam_tabel}")
+    rows = cursor.fetchall()
+    keys = [i[0] for i in cursor.description]
+    data = [dict(zip(keys,row)) for row in rows]
+    return data
