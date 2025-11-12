@@ -14,7 +14,6 @@ def bente():
     print(result)
     return "tweede return" + result
 
-
 @app.route('/abel')
 def abel():
    output_abel = extract_rows_tabel('test_tabel')
