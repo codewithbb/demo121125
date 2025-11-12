@@ -13,10 +13,14 @@ def get_cursor():
 
   return myconn, myconn.cursor()
 
-myconn, mycursor = get_cursor()
-mycursor.execute("""SELECT * from test_tabel""")
-rows = mycursor.fetchall()
-print(rows)
+def extract_rows_tabel(tabel_naam):
+  myconn, mycursor = get_cursor()
+  mycursor.execute(f"""SELECT * from {tabel_naam}""")
+  rows = mycursor.fetchall()
+  print(rows)
+  return rows
+
+
 
 
 
