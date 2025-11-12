@@ -12,9 +12,12 @@ def get_cursor():
 
     return conn, conn.cursor()
 
-connection, cursor = get_cursor()
-cursor.execute("""SELECT * FROM leukehobby""")
+def krijg_output():
+    connection, cursor = get_cursor()
+    cursor.execute("""SELECT * FROM leukehobby""")
+    test = cursor.fetchall()
+    for row in test:
+        print(row)
+    connection.close()
 
-for row in cursor.fetchall():
-    print(row)
-connection.close()
+    return ("yes, het is gelukt! " + str(test))
