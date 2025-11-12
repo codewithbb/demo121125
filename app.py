@@ -18,14 +18,13 @@ def bente():
 @app.route('/abel')
 def abel():
    output_abel = extract_rows_tabel('test_tabel')
-   print(output_abel)
-   return "abel executed successfully: " + str(output_abel)
+   return output_abel
+
 
 @app.route('/donny/')
 def donny():
-   output_donny = donny_app.krijg_output()
-   print(output_donny)
-   return "donny executed successfully: " + str(output_donny)
+   output_donny = donny_app.krijg_output("heel_leuk")
+   return output_donny
 
 if __name__ == '__main__':
     app.run(debug=True)

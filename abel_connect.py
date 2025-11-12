@@ -17,8 +17,9 @@ def extract_rows_tabel(tabel_naam):
   myconn, mycursor = get_cursor()
   mycursor.execute(f"""SELECT * from {tabel_naam}""")
   rows = mycursor.fetchall()
-  print(rows)
-  return rows
+  keys = [i[0] for i in mycursor.description]
+  data = [dict(zip(keys, row)) for row in rows] ## dit is in json format
+  return data
 
 
 
