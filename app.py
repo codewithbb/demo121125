@@ -3,7 +3,7 @@ import bente_app
 from abel_connect import extract_rows_tabel
 
 app = Flask(__name__)
- 
+
 @app.route('/')
 def home():
     return "This is the home page"
