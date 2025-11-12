@@ -2,8 +2,10 @@ from flask import Flask
 import bente_app
 from abel_connect import extract_rows_tabel
 import donny_app
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app)
 
 @app.route('/')
 def home():
