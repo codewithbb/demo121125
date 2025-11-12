@@ -1,6 +1,7 @@
 from flask import Flask
 import bente_app
 from abel_connect import extract_rows_tabel
+import donny_app
 
 app = Flask(__name__)
 
@@ -19,6 +20,12 @@ def abel():
    output_abel = extract_rows_tabel('test_tabel')
    print(output_abel)
    return "abel executed successfully: " + str(output_abel)
+
+@app.route('/donny/')
+def donny():
+   output_donny = donny_app.krijg_output()
+   print(output_donny)
+   return "donny executed successfully: " + str(output_donny)
 
 if __name__ == '__main__':
     app.run(debug=True)
