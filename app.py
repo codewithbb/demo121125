@@ -18,8 +18,8 @@ def bente():
 @app.route('/abel')
 def abel():
    output_abel = extract_rows_tabel('test_tabel')
-   print(output_abel)
-   return "abel executed successfully: " + str(output_abel)
+   return output_abel
+
 
 @app.route('/donny/')
 def donny():
