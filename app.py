@@ -5,7 +5,7 @@ import donny_app
 from flask_cors import CORS
 
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 
 @app.route('/')
 def home():
@@ -15,18 +15,20 @@ def home():
 def bente():
     result = bente_app.krijg_output()
     print(result)
-    return "tweede return" + result
+    return result
+
 
 @app.route('/abel')
 def abel():
    output_abel = extract_rows_tabel('test_tabel')
-   print(output_abel)
-   return "abel executed successfully: " + str(output_abel)
+   return output_abel
+
 
 @app.route('/donny/')
 def donny():
    output_donny = donny_app.krijg_output("heel_leuk")
    return output_donny
+
 
 if __name__ == '__main__':
     app.run(debug=True)
